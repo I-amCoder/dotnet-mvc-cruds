@@ -17,5 +17,16 @@ namespace WebAppMvc.Controllers
         {  
             return View(_db.Categories);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Category category)
+        {
+            return RedirectToAction ("Index");
+        }
     }
 }
