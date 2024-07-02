@@ -2,12 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using WebAppMvc.Services;
 using WebAppMvc.Models;
 using Microsoft.AspNetCore.Identity;
+using WebAppMvc.Config;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
